@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Create directories
+mkdir -p secrets
+
+mkdir -p srcs/requirements/{bonus,mariadb,nginx,tools,wordpress}
+
+mkdir -p srcs/requirements/mariadb/{conf,tools}
+mkdir -p srcs/requirements/nginx/{conf,tools}
+mkdir -p srcs/requirements/wordpress/{conf,tools}
+
+# Create root files
+touch Makefile
+
+# Create secret files
+touch secrets/credentials.txt
+touch secrets/db_password.txt
+touch secrets/db_root_password.txt
+
+# Create srcs files
+touch srcs/docker-compose.yml
+touch srcs/.env
+
+# Create MariaDB files
+touch srcs/requirements/mariadb/Dockerfile
+touch srcs/requirements/mariadb/.dockerignore
+
+# Create NGINX files
+touch srcs/requirements/nginx/Dockerfile
+touch srcs/requirements/nginx/.dockerignore
+
+# Create WordPress files
+touch srcs/requirements/wordpress/Dockerfile
+touch srcs/requirements/wordpress/.dockerignore
+
+echo "Inception project structure created successfully!"
