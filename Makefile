@@ -4,7 +4,6 @@ DISTRO := $(shell . /etc/os-release && echo $$ID)
 
 .PHONY: all
 all:
-	make $(DISTRO)
 	mkdir -p /home/shrimech/data/mariadb
 	mkdir -p /home/shrimech/data/wordpress
 # 	docker compose -f ./srcs/docker-compose.yml up -d --build
@@ -25,14 +24,16 @@ clean:
 .PHONY:fclean
 fclean: clean
 # 	docker system prune -af
-	rm -rf /home/shrimech/data/*
+	rm -rf /home/shrimech/data
 
 
 .PHONY: re
 re: fclean all
 
 
-
+.PHONY: install
+install:
+	make $(DISTRO)
 
 .PHONY: debian
 debian:
