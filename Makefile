@@ -24,7 +24,7 @@ clean:
 .PHONY:fclean
 fclean: clean
 # 	docker system prune -af
-	rm -rf /home/shrimech/data
+	sudo rm -rf /home/shrimech/data
 
 
 .PHONY: re
