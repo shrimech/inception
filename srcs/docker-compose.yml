@@ -23,6 +23,19 @@ services:
     volumes:
       - wordpress_data:/var/www/html
 
+  nginx:
+    build: requirements/nginx
+    image: nginx
+    container_name: nginx
+    restart: always
+    depends_on:
+      - wordpress
+    networks:
+      - inception
+    volumes:
+      - wordpress_data:/var/www/html
+    ports:
+      - "443:443"
 
 
 volumes:
