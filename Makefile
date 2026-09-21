@@ -18,10 +18,10 @@ all:
 
 	sudo ln -s /home/shrimech/data/wordpress \
 		/var/lib/docker/volumes/srcs_wordpress_data/_data
-# 	docker compose -f ./srcs/docker-compose.yml up -d --build
+	docker compose -f ./srcs/docker-compose.yml up -d --build 
 .PHONY: down
 down:
-# 	docker compose -f srcs/docker-compose.yml down
+	docker compose -f srcs/docker-compose.yml down
 
 
 
@@ -29,13 +29,13 @@ down:
 clean:
 	sudo rm -rf /home/shrimech/data/mariadb
 	sudo rm -rf /home/shrimech/data/wordpress
-	docker compose -f srcs/docker-compose.yml down -v mariadb
+	docker compose -f srcs/docker-compose.yml down -v
 
 
 
 .PHONY:fclean
 fclean: clean
-# 	docker system prune -af
+	docker system prune -af
 	sudo rm -rf /home/shrimech/data
 
 
