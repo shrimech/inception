@@ -1,7 +1,7 @@
 FROM debian:bookworm
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
+    apt-get install -y \
         php-fpm \
         php-mysql \
         php-cli \
