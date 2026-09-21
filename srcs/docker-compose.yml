@@ -39,16 +39,8 @@ services:
 
 volumes:
   mariadb_data:
-    driver_opts:
-      type: none
-      o: bind
-      device: ${DATA_PATH}/mariadb
-
   wordpress_data:
-    driver_opts:
-      type: none
-      o: bind
-      device: ${DATA_PATH}/wordpress
+
 
 networks:
   inception:
