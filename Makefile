@@ -4,21 +4,11 @@ DISTRO := $(shell . /etc/os-release && echo $$ID)
 
 .PHONY: all
 all:
-	mkdir -p /home/shrimech/data/mariadb
-	mkdir -p /home/shrimech/data/wordpress
-
-	sudo rm -rf /var/lib/docker/volumes/srcs_mariadb_data
-	sudo rm -rf /var/lib/docker/volumes/srcs_wordpress_data
-
-	sudo mkdir -p /var/lib/docker/volumes/srcs_mariadb_data
-	sudo mkdir -p /var/lib/docker/volumes/srcs_wordpress_data
-
-	sudo ln -s /home/shrimech/data/mariadb \
-		/var/lib/docker/volumes/srcs_mariadb_data/_data
-
-	sudo ln -s /home/shrimech/data/wordpress \
-		/var/lib/docker/volumes/srcs_wordpress_data/_data
+	sudo mkdir -p /home/shrimech/data/mariadb
+	sudo mkdir -p /home/shrimech/data/wordpress
 	docker compose -f ./srcs/docker-compose.yml up -d --build 
+
+
 .PHONY: down
 down:
 	docker compose -f srcs/docker-compose.yml down
@@ -35,7 +25,7 @@ clean:
 
 .PHONY:fclean
 fclean: clean
-	docker system prune -af
+# 	docker system prune -af
 	sudo rm -rf /home/shrimech/data
 
 
