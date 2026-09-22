@@ -17,7 +17,6 @@ if [ ! -f wp-config.php ]; then
 
     wp core download --allow-root
 
-    chown --recursive www-data:www-data /var/www/html
 
     wp config create  --dbname="${MYSQL_DATABASE}" --dbuser="${MYSQL_USER}" --dbpass="${MYSQL_PASSWORD}" --dbhost=mariadb --allow-root
 
@@ -26,6 +25,7 @@ if [ ! -f wp-config.php ]; then
     wp user create  "${WP_USER}" "${WP_EMAIL}" --user_pass="${WP_PASSWORD}" --role=author --allow-root
 
 fi
+    chown --recursive www-data:www-data /var/www/html
 # PHP_FPM_BIN=""
 # if command -v php-fpm >/dev/null 2>&1; then
 #     PHP_FPM_BIN=$(command -v php-fpm)
