@@ -44,14 +44,14 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/shrimech/data
+      device: /home/shrimech/data/mariadb
 
   wordpress_data:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/shrimech/data
+      device: /home/shrimech/data/wordpress
 
 
 networks:
