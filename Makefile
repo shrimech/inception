@@ -6,7 +6,7 @@ DISTRO := $(shell . /etc/os-release && echo $$ID)
 all:
 	sudo mkdir -p /home/shrimech/data/mariadb
 	sudo mkdir -p /home/shrimech/data/wordpress
-	docker compose -f ./srcs/docker-compose.yml up -d --build 
+	docker compose -f ./srcs/docker-compose.yml up -d
 
 
 .PHONY: down
@@ -25,7 +25,7 @@ clean:
 
 .PHONY:fclean
 fclean: clean
-# 	docker system prune -af
+	docker system prune -af
 	sudo rm -rf /home/shrimech/data
 
 
