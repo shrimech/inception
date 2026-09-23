@@ -16,7 +16,7 @@ RUN wget  https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.p
         
 RUN sed -i 's/^listen.*/listen = 0.0.0.0:9000/' /etc/php/*/fpm/pool.d/www.conf
 
-COPY conf/wordpress.sh /usr/local/bin/wordpress.sh
+COPY tools/wordpress.sh /usr/local/bin/wordpress.sh
 
 RUN chmod +x /usr/local/bin/wordpress.sh
 
